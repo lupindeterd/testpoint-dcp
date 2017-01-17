@@ -1,0 +1,36 @@
+#!/bin/bash
+
+export BUSINESS_ID='urn:oasis:names:tc:ebcore:partyid-type:iso6523:0151::22341388307'
+export SERVICE_SCHEME='dbc'
+export SERVICE_VALUE='invoice-2'
+
+export SERVICE_ID=${SERVICE_SCHEME}'::'${SERVICE_VALUE}
+
+curl -v -X PUT --header 'Content-Type: application/json' \
+    --header 'Accept: application/json; indent=4' \
+    --header "Authorization: ${CB_AUTH}" -d '{
+    "DocumentIdentifier":{
+        "scheme":"'${SERVICE_SCHEME}'",
+        "value":"'${SERVICE_VALUE}'"
+    },
+    "ProcessList":[
+        {
+            "ProcessIdentifier":{
+                "scheme": "'${SERVICE_SCHEME}'",
+                "value": "'${SERVICE_VALUE}'"
+            },
+            "ServiceEndpointList":[
+                {
+                    "transportProfile":"dbc-as4",
+                    "EndpointURI":"https://accesspoint.com/as4service/simplified/invoice-2-type/",
+                    "RequireBusinessLevelSignature":"false",
+                    "MinimumAuthenticationLevel":"2",
+                    "ServiceDescription":"as4 message service for invoice 2",
+                    "TechnicalInformationUrl":"http://www.acesspoint.com/as4info"
+                }
+            ]
+        }
+    ]
+}' "https://dcp.testpoint.io/api/v0/business/${BUSINESS_ID}/service/${SERVICE_ID}"
+
+echo 

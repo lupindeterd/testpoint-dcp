@@ -1,0 +1,16 @@
+#!/bin/bash
+# use export CB_AUTH='Bearer XXXXXXXXXXXXXXXXXXXXXXXXXX' for bearer or JWT auth
+
+export BUSINESS_ID='urn:oasis:names:tc:ebcore:partyid-type:iso6523:0151::17102364628'
+export SERVICE_SCHEME='dbc'
+export SERVICE_VALUE='invoice-2'
+
+export SERVICE_ID=${SERVICE_SCHEME}'::'${SERVICE_VALUE}
+
+# note auth header appeared
+curl -v -X DELETE \
+    --header 'Accept: application/json; indent=4' \
+    --header "Authorization: ${CB_AUTH}" \
+    "https://dcp.testpoint.io/api/v0/business/${BUSINESS_ID}/service/${SERVICE_ID}"
+
+echo 
