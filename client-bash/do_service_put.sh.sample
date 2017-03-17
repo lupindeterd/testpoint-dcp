@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export BUSINESS_ID='urn:oasis:names:tc:ebcore:partyid-type:iso6523:0151::22341388307'
+export PARTICIPANT_ID='urn:oasis:names:tc:ebcore:partyid-type:iso6523:0151::22341388307'
 export SERVICE_SCHEME='dbc'
 export SERVICE_VALUE='invoice-2'
 
@@ -31,6 +31,6 @@ curl -v -X PUT --header 'Content-Type: application/json' \
             ]
         }
     ]
-}' "https://dcp.testpoint.io/api/v0/business/${BUSINESS_ID}/service/${SERVICE_ID}"
+}' "https://dcp.testpoint.io/${PARTICIPANT_ID}/service/${SERVICE_ID}"
 
-echo 
+echo

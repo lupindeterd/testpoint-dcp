@@ -1,11 +1,11 @@
 #!/bin/bash
-export BUSINESS_ID='urn:oasis:names:tc:ebcore:partyid-type:iso6523:0151::48005299427'
+export PARTICIPANT_ID='urn:oasis:names:tc:ebcore:partyid-type:iso6523:0151::48005299427'
 export SERVICE_SCHEME='dbc'
 export SERVICE_VALUE='invoices'
 export SERVICE_ID=${SERVICE_SCHEME}'::'${SERVICE_VALUE}
 
 curl -v -X GET \
     --header 'Accept: application/json; indent=4' \
-    "https://dcp.testpoint.io/api/v0/business/${BUSINESS_ID}/service/${SERVICE_ID}"
+    "https://dcp.testpoint.io/${PARTICIPANT_ID}/service/${SERVICE_ID}"
 
-echo 
+echo

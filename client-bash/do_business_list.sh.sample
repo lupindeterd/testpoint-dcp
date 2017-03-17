@@ -1,7 +1,0 @@
-#!/bin/bash
-
-curl -v \
-    --header 'Accept: application/json; indent=4' \
-    'https://dcp.testpoint.io/api/v0/businesses'
-
-echo 

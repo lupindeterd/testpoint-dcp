@@ -1,6 +1,6 @@
 # DCP-client-bash
 
-Bunch of scripts to query https://dcp.testpoint.io/api/v0/ or any other instance of DCP service.
+Bunch of scripts to query https://dcp.testpoint.io/ or any other instance of DCP service.
 
 Usage:
 1. Get your JWT token (how to do it is described on https://idp.testpoint.io)
@@ -10,4 +10,4 @@ Usage:
 
 You can copy and rename any .sample script to .sh, *.sh files are gitignored by default, and add your custom code there.
 
-Firstly you might want to start with demo_auth, then `get_*`, then `put_*`, then `delete_*` and so on.
+First you might want to start with demo_auth, then `get_*`, then `put_*`, then `delete_*` and so on. You might want to update participant ID and service ID in scripts. At least - update participant ID to one you have claimed from the idp.testpoint.io.
