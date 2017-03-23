@@ -1,0 +1,13 @@
+#!/bin/bash
+
+export PID1="urn:oasis:names:tc:ebcore:partyid-type:iso6523:0151::11111111111"
+export PID2="urn:oasis:names:tc:ebcore:partyid-type:iso6523:0088::2222222222222"
+
+curl -X POST --header 'Content-Type: application/json' \
+    --header 'Accept: application/json; indent=4' \
+    --header "Authorization: ${CB_AUTH}" -d '{
+        "participantId": "'${PID2}'"
+    }' \
+    https://dcp.testpoint.io/${PID1}/aka/
+
+echo

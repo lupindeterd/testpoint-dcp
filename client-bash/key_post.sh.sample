@@ -1,0 +1,11 @@
+#!/bin/bash
+
+export BUSINESS_ID='urn:oasis:names:tc:ebcore:partyid-type:iso6523:0151::17102364628'
+
+curl -X POST --header 'Content-Type: application/json' \
+    --header 'Accept: application/json; indent=4' \
+    --header "Authorization: ${CB_AUTH}" -d '{
+        "pubKey": "-----BEGIN PGP PUBLIC KEY BLOCK-----\nVersion: GnuPG v2\n\n.........\n-----END PGP PUBLIC KEY BLOCK-----",
+        "fingerprint": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+    }' \
+    https://dcp.testpoint.io/${BUSINESS_ID}/keys/
